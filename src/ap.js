@@ -14,13 +14,15 @@ var map = require('./map');
  * @memberOf R
  * @since v0.3.0
  * @category Function
- * @sig [f] -> [a] -> [f a]
+ * @sig [a -> b] -> [a] -> [b]
+ * @sig Apply f => f (a -> b) -> f a -> f b
  * @param {Array} fns An array of functions
  * @param {Array} vs An array of values
  * @return {Array} An array of results of applying each of `fns` to all of `vs` in turn.
  * @example
  *
  *      R.ap([R.multiply(2), R.add(3)], [1,2,3]); //=> [2, 4, 6, 4, 5, 6]
+ * @symb R.ap([f, g], [a, b]) = [f(a), f(b), g(a), g(b)]
  */
 module.exports = _curry2(function ap(applicative, fn) {
   return (
